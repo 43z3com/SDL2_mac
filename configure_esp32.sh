@@ -1,13 +1,12 @@
 #!/bin/bash
 
-set -eux
+set -x
 
 #export CC=/Users/Pooh/.platformio/packages/TOOLCHAIN_XTENSA32/bin/xtensa-esp32-elf-gcc
 #export CPPFLAGS=
 
 export FRAMEWORK_ARDUINO_ESPRESSIF32=$HOME/.platformio/packages/framework-arduinoespressif32
 export TOOLCHAIN_XTENSA32=$HOME/.platformio/packages/toolchain-xtensa32
-
 
 export INCLUDE="-I./include\
 -I$FRAMEWORK_ARDUINO_ESPRESSIF32/tools/sdk/include/config \
@@ -81,5 +80,7 @@ export RANLIB=$TOOLCHAIN_XTENSA32/bin/xtensa-esp32-elf-ranlib
 ./configure \
 	--bindir=/Users/Pooh/.platformio/packages/$TOOLCHAIN_XTENSA32/bin \
 	--includedir=/Users/Pooh/.platformio/packages/framework-arduinoespressif32/tools/sdk/include/newlib \
-	--build=xtensa-xtensa-gnu/linux \
+	--host=xtensa-xtensa-gnu/linux \
 	>& configure.log
+
+less configure.log
