@@ -1,0 +1,4 @@
+*.log
+aclocal.m4
+CMakeCache.txt
+cmake.check_cache
